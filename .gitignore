@@ -3,6 +3,7 @@
 *.iws
 .gradle
 buildSrc/local.properties
+buildSrc/build
 /local.properties
 /.idea/*
 !.idea/navEditor.xml
