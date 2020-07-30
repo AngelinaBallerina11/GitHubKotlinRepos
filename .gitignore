@@ -7,6 +7,7 @@ buildSrc/local.properties
 /local.properties
 /.idea/*
 !.idea/navEditor.xml
+!.idea/dictionaries
 /build
 /captures
 .externalNativeBuild

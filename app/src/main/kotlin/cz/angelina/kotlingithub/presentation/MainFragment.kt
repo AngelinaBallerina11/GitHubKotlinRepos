@@ -1,4 +1,4 @@
-package cz.angelina.kotlingithub.ui.main
+package cz.angelina.kotlingithub.presentation
 
 import androidx.fragment.app.Fragment
 import cz.angelina.kotlingithub.R

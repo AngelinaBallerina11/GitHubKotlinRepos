@@ -1,8 +1,8 @@
-package cz.angelina.kotlingithub
+package cz.angelina.kotlingithub.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import cz.angelina.kotlingithub.ui.main.MainFragment
+import cz.angelina.kotlingithub.R
 
 class MainActivity : AppCompatActivity(R.layout.main_activity) {
 

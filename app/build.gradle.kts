@@ -5,6 +5,7 @@ plugins {
     id("kotlin-android-extensions")
     id("kotlin-android")
     id("org.jlleitschuh.gradle.ktlint") version BuildPlugins.ktlint
+    id("org.owasp.dependencycheck") version BuildPlugins.owasp
 }
 
 android {
@@ -52,7 +53,7 @@ android {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk7"))
+    implementation(kotlin("stdlib-jdk8"))
 
     implementation(SupportLibs.appCompat)
     implementation(SupportLibs.androidCoreKtx)
@@ -64,8 +65,11 @@ dependencies {
     implementation(Di.koinViewModel)
 
     debugImplementation(Tools.leakCanary)
+    implementation(Tools.timber)
 
     testImplementation(TestingLib.junit)
+    testImplementation(TestingLib.archUnit)
+
     androidTestImplementation(AndroidTestingLib.androidxTestRunner)
     androidTestImplementation(AndroidTestingLib.androidxTestExtJunit)
 }
