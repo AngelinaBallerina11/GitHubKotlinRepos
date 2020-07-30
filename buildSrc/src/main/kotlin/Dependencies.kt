@@ -14,6 +14,7 @@ object Sdk {
 object Versions {
     const val appCompat = "1.1.0"
     const val constraintLayout = "1.1.3"
+    const val recyclerView = "1.1.0"
     const val coreKtx = "1.2.0"
     const val lifecycle = "2.2.0"
     const val koin = "2.1.6"
@@ -23,7 +24,7 @@ object Versions {
     object Test {
         const val androidxTestExt = "1.1.1"
         const val androidxTest = "1.2.0"
-        const val junit = "4.13"
+        const val junit = "5.6.2"
         const val espressoCore = "3.2.0"
         const val archUnit = "0.14.1"
     }
@@ -41,6 +42,7 @@ object SupportLibs {
     const val constraintLayout = "com.android.support.constraint:constraint-layout:${Versions.constraintLayout}"
     const val androidCoreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
     const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
 }
 
 object Di {
@@ -55,7 +57,7 @@ object Tools {
 }
 
 object TestingLib {
-    const val junit = "junit:junit:${Versions.Test.junit}"
+    const val junit = "org.junit.jupiter:junit-jupiter:${Versions.Test.junit}"
     const val archUnit = "com.tngtech.archunit:archunit-junit5:${Versions.Test.archUnit}"
 }
 

@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Sdk.compileSdkVersion)
+    compileSdkVersion(29)
 
     defaultConfig {
         applicationId = Android.applicationId
@@ -48,8 +48,10 @@ android {
         isWarningsAsErrors = true
         isAbortOnError = true
     }
-    sourceSets["main"].java.srcDir("src/main/kotlin")
-    sourceSets["test"].java.srcDir("src/test/kotlin")
+    sourceSets.all {
+        java.srcDir("src/$name/kotlin")
+    }
+    buildToolsVersion = "30.0.0"
 }
 
 dependencies {
@@ -59,6 +61,7 @@ dependencies {
     implementation(SupportLibs.androidCoreKtx)
     implementation(SupportLibs.lifecycle)
     implementation(SupportLibs.constraintLayout)
+    implementation(SupportLibs.recyclerView)
 
     implementation(Di.koinAndroid)
     implementation(Di.koinScope)
@@ -72,4 +75,11 @@ dependencies {
 
     androidTestImplementation(AndroidTestingLib.androidxTestRunner)
     androidTestImplementation(AndroidTestingLib.androidxTestExtJunit)
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
 }

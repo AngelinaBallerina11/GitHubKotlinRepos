@@ -1,4 +1,4 @@
-package cz.angelina.kotlingithub.presentation
+package cz.angelina.kotlingithub.system
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

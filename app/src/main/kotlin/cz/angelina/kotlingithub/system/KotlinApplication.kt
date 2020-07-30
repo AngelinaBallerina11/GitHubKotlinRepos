@@ -1,11 +1,11 @@
-package cz.angelina.kotlingithub.app
+package cz.angelina.kotlingithub.system
 
 import android.app.Application
 import cz.angelina.kotlingithub.BuildConfig
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
-class KotlinApp : Application() {
+class KotlinApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
