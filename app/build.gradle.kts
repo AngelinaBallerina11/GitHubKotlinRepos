@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(Sdk.compileSdkVersion)
 
     defaultConfig {
         applicationId = Android.applicationId
@@ -51,7 +51,6 @@ android {
     sourceSets.all {
         java.srcDir("src/$name/kotlin")
     }
-    buildToolsVersion = "30.0.0"
 }
 
 dependencies {
