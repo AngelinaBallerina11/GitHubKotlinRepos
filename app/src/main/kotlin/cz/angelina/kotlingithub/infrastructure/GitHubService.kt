@@ -3,6 +3,7 @@ package cz.angelina.kotlingithub.infrastructure
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 internal interface GitHubService {
 
@@ -18,6 +19,18 @@ internal interface GitHubService {
         @Json(name = "description") val description: String
     )
 
-    @GET("search/repositories?q=language:kotlin&sort=stars&order=desc&per_page=1")
-    suspend fun searchRepos(): SearchResponseDto
+    @GET("search/repositories")
+    suspend fun searchRepos(
+        @Query("q") query: String = DEFAULT_QUERY,
+        @Query("sort") sortedBy: String = DEFAULT_SORTED_BY,
+        @Query("order") orderedBy: String = DEFAULT_ORDERED_BY,
+        @Query("per_page") itemsPerPage: Int = ITEMS_PER_PAGE
+    ): SearchResponseDto
+
+    companion object {
+        const val DEFAULT_QUERY = "language:kotlin"
+        const val DEFAULT_SORTED_BY = "stars"
+        const val DEFAULT_ORDERED_BY = "desc"
+        const val ITEMS_PER_PAGE = 10
+    }
 }
