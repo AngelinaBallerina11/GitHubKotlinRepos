@@ -18,7 +18,7 @@ import cz.angelina.kotlingithub.architecture.ArchitectureTest.DoNotIncludeTests
 internal class PresentationLayerTest : ArchitectureTest() {
     @ArchTest
     val `presentation layer should contain only specified classes` =
-        classes().that().resideInAPackage("..presentation..")
+        classes().that().resideInAPackage("..presentation..").and(areNotNested)
             .should().haveSimpleNameEndingWith("ViewModel")
 
     @ArchTest

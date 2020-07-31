@@ -17,8 +17,9 @@ import cz.angelina.kotlingithub.domain.SuspendUseCase
 internal class DomainLayerTest : ArchitectureTest() {
     @ArchTest
     val `domain layer should contain only specified classes` =
-        classes().that().resideInAPackage("..domain..")
+        classes().that().resideInAPackage("..domain")
             .should().haveSimpleNameEndingWith("Repository").andShould().beInterfaces()
+            .orShould().haveSimpleNameEndingWith("UseCaseKt")
             .orShould().haveSimpleNameEndingWith("UseCase")
 
     @ArchTest

@@ -22,9 +22,10 @@ internal class LayersTest : ArchitectureTest() {
         classes().should().resideInAnyPackage(
             "..di",
             "..system",
-            "..data",
             "..presentation",
             "..domain",
+            "..model",
+            "..data",
             "..infrastructure"
         )
 
@@ -35,15 +36,18 @@ internal class LayersTest : ArchitectureTest() {
             .optionalLayer("system").definedBy("..system")
             .optionalLayer("presentation").definedBy("..presentation")
             .optionalLayer("domain").definedBy("..domain")
+            .optionalLayer("model").definedBy("..model")
             .optionalLayer("data").definedBy("..data")
             .optionalLayer("infrastructure").definedBy("..infrastructure")
 
+            /* defines which layers "are seen" by which layers, e.g. data is known only to di and infrastructure */
             .whereLayer("di").mayOnlyBeAccessedByLayers("system")
-            .whereLayer("system").mayOnlyBeAccessedByLayers("di")
+            .whereLayer("system").mayOnlyBeAccessedByLayers()
             .whereLayer("presentation").mayOnlyBeAccessedByLayers("di", "system")
             .whereLayer("domain").mayOnlyBeAccessedByLayers("di", "system", "data", "presentation", "infrastructure")
-            .whereLayer("data").mayOnlyBeAccessedByLayers("di", "domain")
-            .whereLayer("infrastructure").mayOnlyBeAccessedByLayers("di", "data", "domain")
+            .whereLayer("model").mayOnlyBeAccessedByLayers("di", "system", "data", "presentation", "domain", "infrastructure")
+            .whereLayer("data").mayOnlyBeAccessedByLayers("di", "infrastructure")
+            .whereLayer("infrastructure").mayOnlyBeAccessedByLayers("di")
 
     @ArchTest
     val `classes in lower layers should not depend on android imports` =
