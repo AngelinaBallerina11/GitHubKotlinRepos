@@ -58,6 +58,7 @@ android {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    implementation(Kotlin.coroutinesAndroid)
 
     implementation(SupportLibs.appCompat)
     implementation(SupportLibs.androidCoreKtx)
@@ -65,6 +66,9 @@ dependencies {
     implementation(SupportLibs.lifecycleRuntime)
     implementation(SupportLibs.constraintLayout)
     implementation(SupportLibs.recyclerView)
+
+    implementation(Navigation.navigationFragment)
+    implementation(Navigation.navigationUi)
 
     implementation(Di.koinAndroid)
     implementation(Di.koinScope)

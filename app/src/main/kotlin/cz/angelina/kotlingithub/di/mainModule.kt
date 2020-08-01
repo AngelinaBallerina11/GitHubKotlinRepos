@@ -8,11 +8,13 @@ import cz.angelina.kotlingithub.domain.GitHubRepository
 import cz.angelina.kotlingithub.infrastructure.GitHubService
 import cz.angelina.kotlingithub.infrastructure.GitHubSourceImpl
 import cz.angelina.kotlingithub.presentation.MainViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
+@ExperimentalCoroutinesApi
 val mainModule = module {
 
     viewModel { MainViewModel(get()) }

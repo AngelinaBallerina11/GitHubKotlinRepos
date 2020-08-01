@@ -4,19 +4,35 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import cz.angelina.kotlingithub.R
+import cz.angelina.kotlingithub.model.Repo
 import cz.angelina.kotlingithub.presentation.MainViewModel
+import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+@ExperimentalCoroutinesApi
 class MainFragment : Fragment(R.layout.main_fragment) {
 
     private val viewModel: MainViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.load()
+        with(rvRepositories) {
+            adapter = RepoAdapter()
+            layoutManager = LinearLayoutManager(activity)
         }
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.kotlinRepos.collect {
+                updateUi(it)
+            }
+        }
+    }
+
+    private fun updateUi(repos: List<Repo>) {
+        (rvRepositories.adapter as RepoAdapter).setRepos(repos)
     }
 }

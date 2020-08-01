@@ -1,7 +1,11 @@
 <component name="ProjectDictionaryState">
   <dictionary name="AngelinaClv">
     <words>
+      <w>codegen</w>
       <w>koin</w>
+      <w>kotest</w>
+      <w>mockk</w>
+      <w>moshi</w>
     </words>
   </dictionary>
 </component>

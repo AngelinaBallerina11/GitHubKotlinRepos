@@ -23,6 +23,8 @@ object Versions {
     const val timber = "4.7.1"
     const val retrofit = "2.9.0"
     const val moshi = "1.9.3"
+    const val navigationComponent = "2.3.0"
+    const val coroutines = "1.3.8"
 
     object Test {
         const val androidxTestExt = "1.1.1"
@@ -50,6 +52,15 @@ object SupportLibs {
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycleViewModel}"
     const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRuntime}"
     const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
+}
+
+object Kotlin {
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+}
+
+object Navigation {
+    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigationComponent}"
+    const val navigationUi = "androidx.navigation:navigation-ui:${Versions.navigationComponent}"
 }
 
 object Di {

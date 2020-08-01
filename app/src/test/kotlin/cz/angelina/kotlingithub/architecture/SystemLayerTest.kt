@@ -31,6 +31,7 @@ internal class SystemLayerTest : ArchitectureTest() {
             .orShould().haveSimpleNameEndingWith("Layout")
             .orShould().haveSimpleNameEndingWith("Service")
             .orShould().haveSimpleNameEndingWith("Adapter")
+            .orShould().haveSimpleNameEndingWith("AdapterKt")
             .orShould().haveSimpleNameEndingWith("ExtensionsKt")
 
     @ArchTest
