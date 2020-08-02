@@ -1,5 +1,6 @@
 package cz.angelina.kotlingithub.presentation
 
+import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cz.angelina.kotlingithub.domain.GetTrendingKotlinReposUseCase
@@ -15,22 +16,49 @@ import timber.log.Timber
 @ExperimentalCoroutinesApi
 internal class MainViewModel(private val getKotlinRepos: GetTrendingKotlinReposUseCase) : ViewModel() {
 
-    private val _kotlinRepos = MutableStateFlow<List<Repo>>(emptyList())
-    val kotlinRepos: StateFlow<List<Repo>> = _kotlinRepos
+    private val _viewState = MutableStateFlow<State<List<Repo>>>(State.Loading)
+    val viewState: StateFlow<State<List<Repo>>> = _viewState
 
     init {
-        viewModelScope.launch { load() }
+        viewModelScope.launch { fetchKotlinRepos() }
     }
 
-    private suspend fun load() {
+    private suspend fun fetchKotlinRepos() {
         when (val result = getKotlinRepos()) {
             is Result.Success -> {
                 Timber.d("ANGELINA111 SUCCESS ${result.data}")
-                _kotlinRepos.value = result.data
+                _viewState.value = if (result.data.isEmpty()) State.Empty else State.Loaded(result.data)
             }
             is Result.Error -> {
                 Timber.d("ANGELINA111 ERROR ${result.error.message} \n ${result.error.throwable}")
+                _viewState.value = State.Error(result.error.throwable ?: RuntimeException())
             }
+        }
+    }
+
+    internal sealed class State<out T> {
+        object Loading : State<Nothing>() {
+            override fun toString() = "Loading"
+        }
+
+        object Empty : State<Nothing>() {
+            override fun toString() = "Empty"
+        }
+
+        data class Loaded<out T>(val value: T) : State<T>() {
+            override fun toString() = value.toString()
+        }
+
+        class Error(
+            private val cause: Throwable
+        ) : State<Nothing>() {
+            @StringRes
+            val errorMessage: Int = when (cause) {
+                is java.net.UnknownHostException -> cz.angelina.kotlingithub.R.string.no_internet_error
+                else -> cz.angelina.kotlingithub.R.string.general_error
+            }
+
+            override fun toString() = cause.toString()
         }
     }
 }

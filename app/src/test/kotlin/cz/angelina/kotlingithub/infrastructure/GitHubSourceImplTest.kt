@@ -22,7 +22,8 @@ internal class GitHubSourceImplTest : StringSpec({
                 GitHubService.RepoDto(
                     name = "repoName",
                     id = 1,
-                    description = "description"
+                    description = "description",
+                    repoOwner = GitHubService.OwnerDto("url")
                 )
             )
         )

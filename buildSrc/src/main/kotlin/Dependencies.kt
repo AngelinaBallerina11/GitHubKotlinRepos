@@ -25,6 +25,7 @@ object Versions {
     const val moshi = "1.9.3"
     const val navigationComponent = "2.3.0"
     const val coroutines = "1.3.8"
+    const val picasso ="2.5.2"
 
     object Test {
         const val androidxTestExt = "1.1.1"
@@ -56,6 +57,10 @@ object SupportLibs {
 
 object Kotlin {
     const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+}
+
+object Ui {
+    const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
 }
 
 object Navigation {

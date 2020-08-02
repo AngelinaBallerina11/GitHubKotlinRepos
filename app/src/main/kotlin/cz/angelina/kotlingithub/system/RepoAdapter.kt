@@ -3,9 +3,11 @@ package cz.angelina.kotlingithub.system
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import cz.angelina.kotlingithub.R
 import cz.angelina.kotlingithub.model.Repo
 import kotlinx.android.synthetic.main.main_recyclerview_item.view.*
@@ -17,6 +19,7 @@ class RepoAdapter : RecyclerView.Adapter<RepoAdapter.RepoVH>() {
     inner class RepoVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView = itemView.tvName
         var description: TextView = itemView.tvDescription
+        val icon: ImageView = itemView.ivOwnerAvatar
     }
 
     fun setRepos(newRepos: List<Repo>) {
@@ -34,8 +37,13 @@ class RepoAdapter : RecyclerView.Adapter<RepoAdapter.RepoVH>() {
 
     override fun onBindViewHolder(holder: RepoVH, position: Int) {
         val repo = repos[position]
-        holder.name.text = repo.name
-        holder.description.text = repo.description
+        with(holder) {
+            name.text = repo.name
+            description.text = repo.description
+            Picasso.with(holder.itemView.context)
+                .load(repo.avatarUrl)
+                .into(icon)
+        }
     }
 }
 

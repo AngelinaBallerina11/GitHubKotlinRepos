@@ -67,6 +67,8 @@ dependencies {
     implementation(SupportLibs.constraintLayout)
     implementation(SupportLibs.recyclerView)
 
+    implementation(Ui.picasso)
+
     implementation(Navigation.navigationFragment)
     implementation(Navigation.navigationUi)
 

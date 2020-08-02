@@ -16,7 +16,13 @@ internal interface GitHubService {
     data class RepoDto(
         @Json(name = "id") val id: Int,
         @Json(name = "name") val name: String,
-        @Json(name = "description") val description: String
+        @Json(name = "description") val description: String?,
+        @Json(name = "owner") val repoOwner: OwnerDto
+    )
+
+    @JsonClass(generateAdapter = true)
+    data class OwnerDto(
+        @Json(name = "avatar_url") val avatarUrl: String
     )
 
     @GET("search/repositories")
@@ -31,6 +37,6 @@ internal interface GitHubService {
         const val DEFAULT_QUERY = "language:kotlin"
         const val DEFAULT_SORTED_BY = "stars"
         const val DEFAULT_ORDERED_BY = "desc"
-        const val ITEMS_PER_PAGE = 10
+        const val ITEMS_PER_PAGE = 0
     }
 }
