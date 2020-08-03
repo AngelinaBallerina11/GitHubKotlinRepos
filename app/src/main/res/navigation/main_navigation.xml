@@ -5,18 +5,19 @@
     app:startDestination="@id/repoListFragment">
     <fragment
         android:id="@+id/repoListFragment"
-        android:name="cz.angelina.kotlingithub.system.RepoListFragment">
+        android:name="cz.angelina.kotlingithub.system.list.RepoListFragment"
+        android:label="@string/app_name">
         <argument
             android:name="selectedRepo"
             app:argType="cz.angelina.kotlingithub.model.Repo" />
         <action
             android:id="@+id/action_repoListFragment_to_repoDetailFragment"
-            app:destination="@id/repoDetailFragment"/>
+            app:destination="@id/repoDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/repoDetailFragment"
-        android:name="cz.angelina.kotlingithub.system.RepoDetailFragment"
-        android:label="@string/repo_detail_header" >
+        android:name="cz.angelina.kotlingithub.system.detail.RepoDetailFragment"
+        android:label="@string/repo_detail_header">
         <argument
             android:name="selectedRepo"
             app:argType="cz.angelina.kotlingithub.model.Repo" />

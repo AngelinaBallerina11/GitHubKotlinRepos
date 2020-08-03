@@ -23,7 +23,6 @@ internal interface GitHubService {
         @Json(name = "stargazers_count") val stars: Int,
         @Json(name = "watchers_count") val watchers: Int,
         @Json(name = "forks_count") val forks: Int,
-        @Json(name = "size") val size: Int,
         @Json(name = "created_at") val createdAt: DateTime,
         @Json(name = "updated_at") val updatedAt: DateTime
     )

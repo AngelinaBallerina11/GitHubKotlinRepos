@@ -1,4 +1,4 @@
-package cz.angelina.kotlingithub.system
+package cz.angelina.kotlingithub.system.list
 
 import android.view.LayoutInflater
 import android.view.View

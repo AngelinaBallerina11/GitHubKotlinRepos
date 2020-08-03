@@ -14,7 +14,6 @@ data class Repo(
     val stars: Int = 0,
     val watchers: Int = 0,
     val forks: Int = 0,
-    val size: Int = 0,
     val createdAt: DateTime,
     val updatedAt: DateTime
 ) : Parcelable

@@ -23,7 +23,6 @@ internal class GitHubSourceImpl(
             it.stars,
             it.watchers,
             it.forks,
-            it.size,
             it.createdAt,
             it.updatedAt
         )

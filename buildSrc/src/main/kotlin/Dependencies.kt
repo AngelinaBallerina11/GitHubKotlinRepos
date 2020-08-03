@@ -26,7 +26,6 @@ object Versions {
     const val navigationComponent = "2.3.0"
     const val coroutines = "1.3.8"
     const val picasso = "2.5.2"
-    const val desugar = "1.0.9"
     const val joda = "2.10.6"
 
     object Test {
@@ -87,7 +86,6 @@ object Http {
 object Tools {
     const val leakCanary = "com.squareup.leakcanary:leakcanary-android:${Versions.leakCanary}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
-    const val desugaring = "com.android.tools:desugar_jdk_libs:${Versions.desugar}"
     const val jodaTime = "joda-time:joda-time:${Versions.joda}"
 }
 

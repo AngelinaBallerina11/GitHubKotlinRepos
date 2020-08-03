@@ -1,7 +1,6 @@
-package cz.angelina.kotlingithub.system
+package cz.angelina.kotlingithub.presentation
 
 import cz.angelina.kotlingithub.model.Repo
-import cz.angelina.kotlingithub.presentation.DetailViewModel
 import cz.angelina.kotlingithub.runCollectingSuspend
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.data.blocking.forAll
@@ -131,11 +130,10 @@ internal class DetailViewModelTest : StringSpec({
                 DetailViewModel.TimePeriod(200, 3, 0, 0, 0, 0)
             )
         ) { repo, testNowTime, result ->
-            val x = runCollectingSuspend(viewModel.viewState) {
+            runCollectingSuspend(viewModel.viewState) {
                 viewModel.setRepoDetails(repo, testNowTime)
-            }
-            println("X is $x")
-            x shouldEndWith emptyViewState().copy(timePeriodSinceCreation = result, timePeriodSinceUpdate = result)
+            } shouldEndWith emptyViewState()
+                .copy(timePeriodSinceCreation = result, timePeriodSinceUpdate = result)
         }
     }
 })
@@ -149,7 +147,6 @@ fun emptyRepo() = Repo(
     stars = 0,
     watchers = 0,
     forks = 0,
-    size = 0,
     createdAt = DateTime(2020, 1, 1, 1, 1, 1),
     updatedAt = DateTime(2020, 1, 1, 1, 1, 1)
 )

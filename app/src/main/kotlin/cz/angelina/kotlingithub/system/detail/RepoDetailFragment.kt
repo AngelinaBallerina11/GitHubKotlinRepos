@@ -1,4 +1,4 @@
-package cz.angelina.kotlingithub.system
+package cz.angelina.kotlingithub.system.detail
 
 import android.os.Bundle
 import android.text.Spannable

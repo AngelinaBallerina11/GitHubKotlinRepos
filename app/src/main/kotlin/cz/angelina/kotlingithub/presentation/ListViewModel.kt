@@ -2,6 +2,7 @@ package cz.angelina.kotlingithub.presentation
 
 import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import cz.angelina.kotlingithub.domain.GetTrendingKotlinReposUseCase
 import cz.angelina.kotlingithub.domain.invoke
 import cz.angelina.kotlingithub.model.Repo
@@ -9,6 +10,7 @@ import cz.angelina.kotlingithub.model.Result
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @ExperimentalCoroutinesApi
@@ -17,7 +19,11 @@ internal class ListViewModel(private val getKotlinRepos: GetTrendingKotlinReposU
     private val _viewState = MutableStateFlow<State<List<Repo>>>(State.Loading)
     val viewState: StateFlow<State<List<Repo>>> = _viewState
 
-    suspend fun fetchKotlinRepos() {
+    init {
+        viewModelScope.launch { fetchKotlinRepos() }
+    }
+
+    private suspend fun fetchKotlinRepos() {
         when (val result = getKotlinRepos()) {
             is Result.Success -> {
                 Timber.d("SUCCESS ${result.data}")

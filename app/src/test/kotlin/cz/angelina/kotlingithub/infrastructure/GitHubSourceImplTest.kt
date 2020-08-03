@@ -29,7 +29,6 @@ internal class GitHubSourceImplTest : StringSpec({
                     stars = 1,
                     watchers = 2,
                     forks = 3,
-                    size = 4,
                     createdAt = DateTime(),
                     updatedAt = DateTime()
                 )

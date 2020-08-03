@@ -26,7 +26,6 @@ android {
     }
 
     compileOptions {
-        coreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -86,7 +85,6 @@ dependencies {
 
     debugImplementation(Tools.leakCanary)
     implementation(Tools.timber)
-    coreLibraryDesugaring(Tools.desugaring)
     implementation(Tools.jodaTime)
 
     testImplementation(TestingLib.junit)

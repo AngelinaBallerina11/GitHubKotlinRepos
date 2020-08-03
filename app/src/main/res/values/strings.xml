@@ -3,7 +3,7 @@
     <string name="owner_avatar">Owner Avatar</string>
     <string name="no_results">No results 🤷</string>
     <string name="ok">OK</string>
-    <string name="general_error">Oops… something went wrong! 💥 Try again later</string>
+    <string name="general_error">Oops… something went wrong! 💥 Try again later. \nDetails: %s</string>
     <string name="no_internet_error">Could not connect to the server. ☁ Try another network.</string>
     <string name="repo_detail_header">Repository Detail</string>
     <string name="watchers_count">watchers count</string>
