@@ -2,6 +2,7 @@ package cz.angelina.kotlingithub.infrastructure
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import org.joda.time.DateTime
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -16,8 +17,15 @@ internal interface GitHubService {
     data class RepoDto(
         @Json(name = "id") val id: Int,
         @Json(name = "name") val name: String,
+        @Json(name = "full_name") val fullRepoName: String,
         @Json(name = "description") val description: String?,
-        @Json(name = "owner") val repoOwner: OwnerDto
+        @Json(name = "owner") val repoOwner: OwnerDto,
+        @Json(name = "stargazers_count") val stars: Int,
+        @Json(name = "watchers_count") val watchers: Int,
+        @Json(name = "forks_count") val forks: Int,
+        @Json(name = "size") val size: Int,
+        @Json(name = "created_at") val createdAt: DateTime,
+        @Json(name = "updated_at") val updatedAt: DateTime
     )
 
     @JsonClass(generateAdapter = true)

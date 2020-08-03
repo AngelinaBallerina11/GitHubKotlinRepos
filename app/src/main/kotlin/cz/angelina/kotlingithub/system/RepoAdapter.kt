@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import cz.angelina.kotlingithub.R
 import cz.angelina.kotlingithub.model.Repo
-import kotlinx.android.synthetic.main.main_recyclerview_item.view.*
+import kotlinx.android.synthetic.main.repo_recyclerview_item.view.*
 
-class RepoAdapter : RecyclerView.Adapter<RepoAdapter.RepoVH>() {
+class RepoAdapter(private val itemClickListener: (Repo) -> Unit) : RecyclerView.Adapter<RepoAdapter.RepoVH>() {
 
     private val repos: ArrayList<Repo> = arrayListOf()
 
@@ -31,13 +31,14 @@ class RepoAdapter : RecyclerView.Adapter<RepoAdapter.RepoVH>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoVH =
-        RepoVH(parent.inflate(R.layout.main_recyclerview_item))
+        RepoVH(parent.inflate(R.layout.repo_recyclerview_item))
 
     override fun getItemCount(): Int = repos.size
 
     override fun onBindViewHolder(holder: RepoVH, position: Int) {
         val repo = repos[position]
         with(holder) {
+            holder.itemView.setOnClickListener { itemClickListener(repo) }
             name.text = repo.name
             description.text = repo.description
             Picasso.with(holder.itemView.context)

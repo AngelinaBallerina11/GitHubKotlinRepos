@@ -17,8 +17,15 @@ internal class GitHubSourceImpl(
         Repo(
             it.id,
             it.name,
+            it.fullRepoName,
             it.description.orEmpty(),
-            it.repoOwner.avatarUrl
+            it.repoOwner.avatarUrl,
+            it.stars,
+            it.watchers,
+            it.forks,
+            it.size,
+            it.createdAt,
+            it.updatedAt
         )
     }
 }

@@ -5,4 +5,59 @@
     <string name="ok">OK</string>
     <string name="general_error">Oops… something went wrong! 💥 Try again later</string>
     <string name="no_internet_error">Could not connect to the server. ☁ Try another network.</string>
+    <string name="repo_detail_header">Repository Detail</string>
+    <string name="watchers_count">watchers count</string>
+    <string name="forks_count">forks count</string>
+    <string name="stars_count">stars count</string>
+    <string name="created_time_ago">Created %s ago</string>
+    <string name="updated_time_ago">Updated %s ago</string>
+
+    <plurals name="year">
+        <item quantity="zero">"%d years"</item>
+        <item quantity="one">"%d year"</item>
+        <item quantity="two">"%d years"</item>
+        <item quantity="few">"%d years"</item>
+        <item quantity="many">"%d years"</item>
+        <item quantity="other">"%d years"</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="zero">"%d months"</item>
+        <item quantity="one">"%d month"</item>
+        <item quantity="two">"%d months"</item>
+        <item quantity="few">"%d months"</item>
+        <item quantity="many">"%d months"</item>
+        <item quantity="other">"%d months"</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="zero">"%d days"</item>
+        <item quantity="one">"%d day"</item>
+        <item quantity="two">"%d days"</item>
+        <item quantity="few">"%d days"</item>
+        <item quantity="many">"%d days"</item>
+        <item quantity="other">"%d days"</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="zero">"%d hours"</item>
+        <item quantity="one">"%d hour"</item>
+        <item quantity="two">"%d hours"</item>
+        <item quantity="few">"%d hours"</item>
+        <item quantity="many">"%d hours"</item>
+        <item quantity="other">"%d hours"</item>
+    </plurals>
+    <plurals name="minute">
+        <item quantity="zero">"%d minutes"</item>
+        <item quantity="one">"%d minute"</item>
+        <item quantity="two">"%d minutes"</item>
+        <item quantity="few">"%d minutes"</item>
+        <item quantity="many">"%d minutes"</item>
+        <item quantity="other">"%d minutes"</item>
+    </plurals>
+    <plurals name="seconds">
+        <item quantity="zero">"%d seconds"</item>
+        <item quantity="one">"%d second"</item>
+        <item quantity="two">"%d seconds"</item>
+        <item quantity="few">"%d seconds"</item>
+        <item quantity="many">"%d seconds"</item>
+        <item quantity="other">"%d seconds"</item>
+    </plurals>
 </resources>

@@ -2,7 +2,6 @@ package cz.angelina.kotlingithub.presentation
 
 import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import cz.angelina.kotlingithub.domain.GetTrendingKotlinReposUseCase
 import cz.angelina.kotlingithub.domain.invoke
 import cz.angelina.kotlingithub.model.Repo
@@ -10,27 +9,22 @@ import cz.angelina.kotlingithub.model.Result
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @ExperimentalCoroutinesApi
-internal class MainViewModel(private val getKotlinRepos: GetTrendingKotlinReposUseCase) : ViewModel() {
+internal class ListViewModel(private val getKotlinRepos: GetTrendingKotlinReposUseCase) : ViewModel() {
 
     private val _viewState = MutableStateFlow<State<List<Repo>>>(State.Loading)
     val viewState: StateFlow<State<List<Repo>>> = _viewState
 
-    init {
-        viewModelScope.launch { fetchKotlinRepos() }
-    }
-
-    private suspend fun fetchKotlinRepos() {
+    suspend fun fetchKotlinRepos() {
         when (val result = getKotlinRepos()) {
             is Result.Success -> {
-                Timber.d("ANGELINA111 SUCCESS ${result.data}")
+                Timber.d("SUCCESS ${result.data}")
                 _viewState.value = if (result.data.isEmpty()) State.Empty else State.Loaded(result.data)
             }
             is Result.Error -> {
-                Timber.d("ANGELINA111 ERROR ${result.error.message} \n ${result.error.throwable}")
+                Timber.d("ERROR ${result.error.message} \n ${result.error.throwable}")
                 _viewState.value = State.Error(result.error.throwable ?: RuntimeException())
             }
         }
@@ -49,16 +43,14 @@ internal class MainViewModel(private val getKotlinRepos: GetTrendingKotlinReposU
             override fun toString() = value.toString()
         }
 
-        class Error(
-            private val cause: Throwable
+        data class Error(
+            val cause: Throwable
         ) : State<Nothing>() {
             @StringRes
             val errorMessage: Int = when (cause) {
                 is java.net.UnknownHostException -> cz.angelina.kotlingithub.R.string.no_internet_error
                 else -> cz.angelina.kotlingithub.R.string.general_error
             }
-
-            override fun toString() = cause.toString()
         }
     }
 }

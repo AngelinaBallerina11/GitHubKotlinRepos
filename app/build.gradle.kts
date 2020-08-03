@@ -6,6 +6,7 @@ plugins {
     kotlin("kapt")
     id("org.jlleitschuh.gradle.ktlint") version BuildPlugins.ktlint
     id("org.owasp.dependencycheck") version BuildPlugins.owasp
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -25,6 +26,7 @@ android {
     }
 
     compileOptions {
+        coreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -79,10 +81,13 @@ dependencies {
     implementation(Http.retrofit)
     implementation(Http.retrofitMoshiConverter)
     implementation(Http.moshi)
+    implementation(Http.moshiAdapters)
     kapt(Http.kotlinCodegen)
 
     debugImplementation(Tools.leakCanary)
     implementation(Tools.timber)
+    coreLibraryDesugaring(Tools.desugaring)
+    implementation(Tools.jodaTime)
 
     testImplementation(TestingLib.junit)
     testImplementation(TestingLib.archUnit)

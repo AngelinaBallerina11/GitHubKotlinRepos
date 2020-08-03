@@ -9,6 +9,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import okhttp3.ResponseBody
+import org.joda.time.DateTime
 import retrofit2.HttpException
 import retrofit2.Response
 
@@ -22,8 +23,15 @@ internal class GitHubSourceImplTest : StringSpec({
                 GitHubService.RepoDto(
                     name = "repoName",
                     id = 1,
+                    fullRepoName = "",
                     description = "description",
-                    repoOwner = GitHubService.OwnerDto("url")
+                    repoOwner = GitHubService.OwnerDto("url"),
+                    stars = 1,
+                    watchers = 2,
+                    forks = 3,
+                    size = 4,
+                    createdAt = DateTime(),
+                    updatedAt = DateTime()
                 )
             )
         )

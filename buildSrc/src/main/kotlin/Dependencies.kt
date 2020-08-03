@@ -25,7 +25,9 @@ object Versions {
     const val moshi = "1.9.3"
     const val navigationComponent = "2.3.0"
     const val coroutines = "1.3.8"
-    const val picasso ="2.5.2"
+    const val picasso = "2.5.2"
+    const val desugar = "1.0.9"
+    const val joda = "2.10.6"
 
     object Test {
         const val androidxTestExt = "1.1.1"
@@ -65,7 +67,7 @@ object Ui {
 
 object Navigation {
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigationComponent}"
-    const val navigationUi = "androidx.navigation:navigation-ui:${Versions.navigationComponent}"
+    const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigationComponent}"
 }
 
 object Di {
@@ -78,12 +80,15 @@ object Http {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
+    const val moshiAdapters = "com.squareup.moshi:moshi-adapters:${Versions.moshi}"
     const val kotlinCodegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
 }
 
 object Tools {
     const val leakCanary = "com.squareup.leakcanary:leakcanary-android:${Versions.leakCanary}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+    const val desugaring = "com.android.tools:desugar_jdk_libs:${Versions.desugar}"
+    const val jodaTime = "joda-time:joda-time:${Versions.joda}"
 }
 
 object TestingLib {
