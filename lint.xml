@@ -79,7 +79,7 @@
     <issue id="ObsoleteSdkInt" severity="error" />
     <issue id="ViewHolder" severity="error" />
     <issue id="HandlerLeak" severity="error" />
-    <issue id="UnusedResources" severity="error" />
+    <issue id="UnusedResources" severity="warning" />
     <issue id="IconXmlAndPng" severity="error" />
     <issue id="MissingApplicationIcon" severity="error" />
     <issue id="IconExtension" severity="error" />
