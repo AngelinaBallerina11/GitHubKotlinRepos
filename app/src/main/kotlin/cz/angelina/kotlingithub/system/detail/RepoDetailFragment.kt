@@ -19,6 +19,9 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+/**
+ * Displays the repository details
+ */
 @ExperimentalCoroutinesApi
 class RepoDetailFragment : Fragment(R.layout.detail_fragment) {
 
@@ -45,11 +48,11 @@ class RepoDetailFragment : Fragment(R.layout.detail_fragment) {
         tvWatchersCount.text = viewState.watchersCount
         tvForkCount.text = viewState.forksCount
         tvStarCount.text = viewState.starsCount
-        tvCreated.text = formatString(R.string.created_time_ago, viewState.timePeriodSinceCreation)
-        tvUpdated.text = formatString(R.string.updated_time_ago, viewState.timePeriodSinceUpdate)
+        tvCreated.text = formatTimePeriodString(R.string.created_time_ago, viewState.timePeriodSinceCreation)
+        tvUpdated.text = formatTimePeriodString(R.string.updated_time_ago, viewState.timePeriodSinceUpdate)
     }
 
-    private fun formatString(@StringRes stringResource: Int, period: DetailViewModel.TimePeriod): SpannableString {
+    private fun formatTimePeriodString(@StringRes stringResource: Int, period: DetailViewModel.TimePeriod): SpannableString {
         var omitDetails = false
         return context?.let { ctx ->
             val builder = StringBuilder().apply {

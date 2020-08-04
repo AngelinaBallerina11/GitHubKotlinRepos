@@ -6,6 +6,10 @@ import org.joda.time.DateTime
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+/**
+ * Retrofit & Moshi implementation of the GitHub API client.
+ * Only the minimum necessary information is serialized/deserialized.
+ */
 internal interface GitHubService {
 
     @JsonClass(generateAdapter = true)
@@ -44,6 +48,6 @@ internal interface GitHubService {
         const val DEFAULT_QUERY = "language:kotlin"
         const val DEFAULT_SORTED_BY = "stars"
         const val DEFAULT_ORDERED_BY = "desc"
-        const val ITEMS_PER_PAGE = 0
+        const val ITEMS_PER_PAGE = 10
     }
 }

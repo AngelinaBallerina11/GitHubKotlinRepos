@@ -8,6 +8,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import cz.angelina.kotlingithub.R
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+/**
+ * This app follows the `single-activity` pattern. This is the main host activity
+ * for the fragment flow defined in the Jetpack Navigation Component
+ */
 @ExperimentalCoroutinesApi
 class MainActivity : AppCompatActivity(R.layout.main_activity) {
     private lateinit var navController: NavController

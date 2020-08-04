@@ -4,6 +4,10 @@ import cz.angelina.kotlingithub.data.GitHubSource
 import cz.angelina.kotlingithub.model.Repo
 import cz.angelina.kotlingithub.model.Result
 
+/**
+ * Specific implementation of the `source` interface.
+ * @property gitHubService API service which performs data fetching from the GitHub API
+ */
 internal class GitHubSourceImpl(
     private val gitHubService: GitHubService
 ) : GitHubSource {
@@ -13,6 +17,10 @@ internal class GitHubSourceImpl(
         }
     }
 
+    /**
+     * This could be done by a separate `mapper` class which could be unit tested.
+     * A simple implementation is done here.
+     */
     private fun List<GitHubService.RepoDto>.mapToBusinessEntity(): List<Repo> = map {
         Repo(
             it.id,

@@ -17,6 +17,10 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
+/**
+ * Displays the list of the top Kotlin repositories. For simplicity and due to
+ * the demo scope only the first 10 values are displayed.
+ */
 @ExperimentalCoroutinesApi
 class RepoListFragment : Fragment(R.layout.list_fragment) {
 

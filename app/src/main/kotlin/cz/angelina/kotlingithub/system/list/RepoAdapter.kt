@@ -12,6 +12,10 @@ import cz.angelina.kotlingithub.R
 import cz.angelina.kotlingithub.model.Repo
 import kotlinx.android.synthetic.main.repo_recyclerview_item.view.*
 
+/**
+ * Recyclerview adapter for the repositories list
+ * @property itemClickListener click listener which opens the details page
+ */
 class RepoAdapter(private val itemClickListener: (Repo) -> Unit) : RecyclerView.Adapter<RepoAdapter.RepoVH>() {
 
     private val repos: ArrayList<Repo> = arrayListOf()

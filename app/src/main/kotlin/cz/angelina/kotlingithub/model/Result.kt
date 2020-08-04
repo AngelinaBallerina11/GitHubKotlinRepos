@@ -1,5 +1,9 @@
 package cz.angelina.kotlingithub.model
 
+/**
+ * Result obtained from the Use Case. It can be either [Success] and hold the data,
+ * or it is an [Error] and has an [ErrorResult] which has error details.
+ */
 sealed class Result<out T : Any> {
 
     data class Success<out T : Any>(val data: T) : Result<T>()

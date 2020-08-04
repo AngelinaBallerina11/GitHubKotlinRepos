@@ -20,6 +20,9 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
+/**
+ * Dependency Injection main application module for the list and the detail screens
+ */
 @ExperimentalCoroutinesApi
 val mainModule = module {
 
@@ -47,8 +50,14 @@ val mainModule = module {
     factory<GitHubRepository> { GitHubRepositoryImpl(get()) }
 }
 
+/**
+ * Moshi serialization adapter to convert GitHub specific date time format to Joda time type
+ */
 private class DateTimeAdapter {
 
+    /**
+     * GitHub specific date time format
+     */
     val format = "yyyy-MM-dd'T'HH:mm:ssZ"
     val formatter: DateTimeFormatter = DateTimeFormat.forPattern(format)
 

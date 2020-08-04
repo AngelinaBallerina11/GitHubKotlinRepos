@@ -2,10 +2,13 @@
   <dictionary name="AngelinaClv">
     <words>
       <w>codegen</w>
+      <w>deserialized</w>
+      <w>jetpack</w>
       <w>koin</w>
       <w>kotest</w>
       <w>mockk</w>
       <w>moshi</w>
+      <w>mvvm</w>
     </words>
   </dictionary>
 </component>
